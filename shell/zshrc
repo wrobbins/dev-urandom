@@ -16,6 +16,9 @@ fi
 
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 
+alias cat="batcat"
+alias cat="batcat -p"
+
 alias nvm="fnm"
 alias vim="nvim"
 alias pbcopy="xclip -selection clipboard"
@@ -23,6 +26,7 @@ alias cdp="cd ~/projects"
 alias df="duf"
 alias du="dust -d 1"
 alias grep="rg"
+alias ls="exa"
 
 eval "$(fnm env --use-on-cd)"
 
