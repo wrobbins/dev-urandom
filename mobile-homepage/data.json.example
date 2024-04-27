@@ -1,0 +1,12 @@
+{
+  "links": [
+    {
+      "title": "AP News",
+      "domain": "apnews.com"
+    },
+    {
+      "title": "CNN",
+      "domain": "lite.cnn.com"
+    }
+  ]
+}

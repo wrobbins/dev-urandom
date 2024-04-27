@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Homepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/pico.classless.min.css" />
+    <style>
+      :root {
+        --pico-font-size: 150%;
+      }
+      .centered {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .link {
+        padding: 20px;
+        border: 1px solid var(--pico-secondary);
+        border-radius: 5px;
+      }
+      .link:hover {
+        background-color: var(--pico-mark-background-color);
+      }
+    </style>
+  </head>
+  <body style="margin-top: 20px">
+    <div style="display: flex; flex-direction: column" class="centered">
+      <section>
+        <h3 id="time"></h3>
+      </section>
+      <aside style="width: 100%; text-align: center">
+        <ul style="padding: 20px; padding-top: 0">
+          {{#links}}
+          <li class="link">
+            <a href="https://{{ domain }}" target="_blank">
+              <div style="display: flex;">
+                {{#logo}}
+                <img src="https://favicon.twenty.com/{{ logo }}/32"
+                     referrerpolicy="no-referrer"
+                     alt="{{ title }}" />
+              {{/logo}}
+              {{^logo}}
+              <img src="https://favicon.twenty.com/{{ domain }}/32"
+                   referrerpolicy="no-referrer"
+                   alt="{{ title }}" />
+            {{/logo}}
+            <span style="margin-left: 10px">{{ title }}</span>
+          </div>
+        </a>
+      </li>
+    {{/links}}
+  </ul>
+</aside>
+</div>
+</body>
+<script>
+    const date = new Date(); // Use the current date or any other date object
+
+    // Format the date and time
+    const formatter = new Intl.DateTimeFormat("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false, // Use 24-hour format
+    });
+
+    const formattedDateTime = formatter.format(date);
+
+    const time = document.getElementById("time");
+    time.innerText = formattedDateTime;
+</script>
+</html>

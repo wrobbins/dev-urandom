@@ -1,0 +1,9 @@
+{
+  "name": "mobile-homepage",
+  "scripts": {
+    "build": "mustache data.json index.mustache > index.html"
+  },
+  "devDependencies": {
+    "mustache": "^4.2.0"
+  }
+}
