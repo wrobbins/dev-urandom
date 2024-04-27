@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#
+# usage: update-wallaper <rclone-remote-name> <rclone-remote-dir> <local-wallpaper-dir>
+#
+# Copies images from an rclone source to local. Sets a random image as Gnome wallpaper.
+#
+# assumes
+#  - $PATH has rotate-wallaper, set-wallaper
+#  - rclone is set up
+
+
+remote_name=$1
+remote_wallpaper_dir=$2
+local_wallpaper_dir=$3
+
+rclone copy "${remote_name}":"${remote_wallpaper_dir}" "${local_wallpaper_dir}"
+rotate-wallpaper "${local_wallpaper_dir}"

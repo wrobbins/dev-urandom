@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+#
+# pick random wallpaper from directory provided as first arg
+#
+
+wallpaper_dir="$1"
+
+if [ -z "$wallpaper_dir" ]; then
+    echo "usage: set-wallpaper <directory>"
+    exit 1
+fi
+
+if [ ! -d "$wallpaper_dir" ]; then
+ echo "$wallpaper_dir does not exist."
+ exit 1
+fi
+
+selection=$(find $wallpaper_dir -type f -iname "*.jpeg" \
+	-o -iname "*.bmp" \
+	-o -iname "*.jpg" \
+	-o -iname "*.png" \
+	-o -iname "*.webp" | \
+	shuf -n1)
+echo $selection
+
+set-wallpaper "$selection"
+
