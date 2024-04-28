@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -34,30 +34,32 @@
           {{#links}}
           <li class="link">
             <a href="https://{{ domain }}" target="_blank">
-              <div style="display: flex;">
+              <div style="display: flex">
                 {{#logo}}
-                <img src="https://favicon.twenty.com/{{ logo }}/32"
-                     referrerpolicy="no-referrer"
-                     alt="{{ title }}" />
-              {{/logo}}
-              {{^logo}}
-              <img src="https://favicon.twenty.com/{{ domain }}/32"
-                   referrerpolicy="no-referrer"
-                   alt="{{ title }}" />
-            {{/logo}}
-            <span style="margin-left: 10px">{{ title }}</span>
-          </div>
-        </a>
-      </li>
-    {{/links}}
-  </ul>
-</aside>
-</div>
-</body>
-<script>
-    const date = new Date(); // Use the current date or any other date object
+                <img
+                  src="https://favicon.twenty.com/{{ logo }}/32"
+                  referrerpolicy="no-referrer"
+                  alt="{{ title }}"
+                />
+                {{/logo}} {{^logo}}
+                <img
+                  src="https://favicon.twenty.com/{{ domain }}/32"
+                  referrerpolicy="no-referrer"
+                  alt="{{ title }}"
+                />
+                {{/logo}}
+                <span style="margin-left: 10px">{{ title }}</span>
+              </div>
+            </a>
+          </li>
+          {{/links}}
+        </ul>
+      </aside>
+    </div>
+  </body>
+  <script>
+    const date = new Date();
 
-    // Format the date and time
     const formatter = new Intl.DateTimeFormat("en-US", {
       year: "numeric",
       month: "long",
@@ -71,5 +73,5 @@
 
     const time = document.getElementById("time");
     time.innerText = formattedDateTime;
-</script>
+  </script>
 </html>
