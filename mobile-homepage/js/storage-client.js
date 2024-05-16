@@ -4,13 +4,10 @@ const storageWorker = new Worker("js/storage-worker.js", { type: "module" });
 const worker = Comlink.wrap(storageWorker);
 
 storageWorker.onerror = (err) => {
-  console.log(err);
+  console.error(err);
 };
 
-const recordClick = (site) => {
-  worker.recordClick(site);
-};
-
+const recordClick = worker.recordClick;
 const getTodaysClicks = worker.todaysClicks;
 
 export { recordClick, getTodaysClicks };
