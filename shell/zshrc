@@ -1,17 +1,14 @@
-export ZSH="$HOME/.oh-my-zsh"
 export PATH=$HOME/.local/bin:$PATH
 export LIBVIRT_DEFAULT_URI="qemu:///system"
 export EDITOR='nvim'
 
-source ~/.local/bin/check-os.zsh
-source $ZSH/oh-my-zsh.sh
+export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="agnoster"
-
-# oh-my-zsh plugins
 plugins=(git fnm)
+COMPLETION_WAITING_DOTS=true
+source $ZSH/oh-my-zsh.sh
 
-COMPLETION_WAITING_DOTS="true"
-
+source ~/.local/bin/check-os.zsh
 if [[ "$OS_TYPE" == *"Fedora"* ]]; then
     source /usr/share/fzf/shell/key-bindings.zsh
     alias find="fd"
