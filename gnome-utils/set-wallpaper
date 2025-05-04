@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 # set wallpaper for default and dark mode 
-
-file=$(readlink -f $1)
-gsettings set org.gnome.desktop.background picture-uri "file://${file}"
-gsettings set org.gnome.desktop.background picture-uri-dark "file://${file}"
+echo $1
+file=$(readlink -f "${1}")
+uri="file://${file}"
+gsettings set org.gnome.desktop.background picture-uri "${uri}"
+gsettings set org.gnome.desktop.background picture-uri-dark "${uri}"
+gsettings set org.gnome.desktop.background picture-options 'scaled'

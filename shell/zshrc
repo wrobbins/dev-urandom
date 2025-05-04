@@ -28,15 +28,20 @@ alias nvm="fnm"
 alias vim="nvim"
 alias pbcopy="wl-copy"
 alias pbpaste="wl-paste"
-alias df="duf"
+alias df="duf --only local"
 alias du="dust -d 1"
 alias grep="rg"
 alias ls="exa"
 alias free="free -h"
 alias dc="docker compose"
+alias gs='gss'
 
 # custom
 alias ls-latest="exa -la --sort=modified --reverse --color=always | head -n 11"
 alias cdp="cd ~/projects"
 
-eval "$(fnm env)"
+if [[ -f ~/.local-alias ]]; then
+  source ~/.local-alias
+fi
+
+eval "$(fnm env --use-on-cd --shell zsh)"
